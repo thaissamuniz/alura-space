@@ -3,6 +3,7 @@ import Menu from "../../components/Menu";
 import styles from './style.module.scss';
 import Banner from '../../components/Banner';
 import Footer from "../../components/Footer";
+import Galery from "../../components/Galery";
 
 const Home = () => {
     return (
@@ -14,6 +15,9 @@ const Home = () => {
                     <Banner />
                 </section>
             </main>
+            <div className={styles.galery}>
+                <Galery />
+            </div>
             <Footer />
         </>
     )
