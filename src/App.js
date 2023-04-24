@@ -1,12 +1,8 @@
-import Header from "./components/Header";
-import Menu from "./components/Menu";
+import Home from './pages/Home';
 import './styles/globalStyles.scss';
 function App() {
   return (
-    <>
-      <Header />
-      <Menu />
-    </>
+    <Home />
   );
 }
 
