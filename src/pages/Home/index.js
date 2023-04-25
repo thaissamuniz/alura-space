@@ -4,6 +4,7 @@ import styles from './style.module.scss';
 import Banner from '../../components/Banner';
 import Footer from "../../components/Footer";
 import Galery from "../../components/Galery";
+import Popular from "../../components/Popular";
 
 const Home = () => {
     return (
@@ -14,10 +15,11 @@ const Home = () => {
                     <Menu />
                     <Banner />
                 </section>
+                <div className={styles.galery}>
+                    <Galery />
+                    <Popular />
+                </div>
             </main>
-            <div className={styles.galery}>
-                <Galery />
-            </div>
             <Footer />
         </>
     )

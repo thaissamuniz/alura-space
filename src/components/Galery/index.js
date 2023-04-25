@@ -1,31 +1,24 @@
 import styles from './style.module.scss';
 import Tags from "../Tags";
-import fotos from './pics.json';
-import open from './open.png';
-import fav from './favorito.png';
+import Cards from './Cards';
+import pics from './pics.json';
+import { useState } from 'react';
 
 const Galery = () => {
+    const [itens, setItens] = useState(pics);
+    const tags = [...new Set(pics.map(val => val.tag))];
+    const picsFilter = (tag) => {
+        const newPics = pics.filter(pic => pic.tag === tag);
+
+        setItens(newPics)
+    }
+
+
     return (
         <section className={styles.galery}>
             <h2>Navegue pela galeria</h2>
-            <Tags />
-            <ul className={styles.galery__cards}>
-                {fotos.map(pic => {
-                    return (
-                        <li key={pic.id} className={styles.galery__card}>
-                            <img className={styles.galery__image} src={pic.imagem} alt={pic.titulo} />
-                            <p className={styles.galery__descrip}>{pic.titulo}</p>
-                            <div>
-                                <p>{pic.creditos}</p>
-                                <span>
-                                    <img src={fav} alt='icone coração de curtir' />
-                                    <img src={open} alt='icone de abrir modal' />
-                                </span>
-                            </div>
-                        </li>
-                    );
-                })}
-            </ul>
+            <Tags tags={tags} picsFilter={picsFilter} setItens={setItens}/>
+            <Cards itens={itens} styles={styles} />
         </section>
     )
 }
